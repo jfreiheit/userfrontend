@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { User } from './user';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  baseUrl = 'http://localhost:3000';
+  baseUrl = environment.apiUrl;
   user: User = {username: '', password: '', email: '', role: ''};
   userChange: Subject<User> = new Subject<User>();
   loggedIn = false;
